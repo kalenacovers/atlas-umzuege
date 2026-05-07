@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Atlas Umzüge — Premium Umzüge aus dem Schwarzwald</title>
 <meta name="description" content="Atlas Umzüge: Nah- und Fernumzüge, Grundreinigung, Entrümpelung und Klaviertransport. Aus Dornhan im Schwarzwald. Über 180 ausgezeichnete Bewertungen.">
 <meta property="og:type" content="website">
@@ -49,9 +49,8 @@
   --burgundy-soft: rgba(200, 200, 200, 0.18);
   --burgundy-line: rgba(160, 160, 160, 0.30);
   --brown: #352C19;
-  --brown-soft: #4A3F28;
 
-  /* Neutrals — premium warm palette */
+  /* Neutrals */
   --bg: #FFFFFF;
   --bg-warm: #F5F5F5;
   --bg-cream: #EBEBEB;
@@ -64,8 +63,6 @@
 
   --line: rgba(31, 26, 18, 0.08);
   --line-strong: rgba(31, 26, 18, 0.16);
-  --line-light: rgba(31, 26, 18, 0.05);
-
   --paper: #FFFFFF;
 
   /* Motion */
@@ -75,10 +72,17 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+a, button, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -90,6 +94,7 @@ body {
   background: var(--bg);
   overflow-x: hidden;
   letter-spacing: 0;
+  padding-bottom: calc(82px + env(safe-area-inset-bottom));
 }
 
 ::selection { background: var(--burgundy); color: var(--bg); }
@@ -174,16 +179,16 @@ h1, h2, h3, h4 {
 .wrap {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 max(32px, env(safe-area-inset-left));
+  padding-right: max(32px, env(safe-area-inset-right));
 }
-@media (max-width: 640px) { .wrap { padding: 0 20px; } }
 @media (max-width: 640px) {
+  .wrap {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
   .header { top: 12px; width: calc(100% - 24px); }
-  .header-spacer { height: 80px; }
 }
-
-/* === FLOATING HEADER === */
-.header-spacer { height: 100px; }
 
 .header {
   position: fixed;
@@ -692,7 +697,6 @@ h1, h2, h3, h4 {
     font-size: 0.76rem;
   }
   .hero-stats { display: none; }
-  .hero-stat-num { font-size: 1.5rem; }
   .hero-scroll { display: none; }
   .hero h1 { font-size: clamp(2.25rem, 10vw, 3.35rem); line-height: 1.12; letter-spacing: 0; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 32px; }
@@ -786,6 +790,9 @@ section { position: relative; }
   .about-card { left: 16px; right: 16px; bottom: 16px; padding: 20px; }
   .about-card-icon { width: 44px; height: 44px; }
   .about-card-icon svg { width: 22px; height: 22px; }
+  .about-stat { padding: 0 12px 0 0; }
+  .about-stat + .about-stat { padding: 0 12px 0 12px; }
+  .about-stat:last-child { padding-right: 0; }
 }
 
 .about-text h2 { margin: 24px 0 28px; }
@@ -796,7 +803,7 @@ section { position: relative; }
   line-height: 1.75;
   color: var(--ink-soft);
   margin-bottom: 20px;
-  max-width: 520px;
+  max-width: 100%;
 }
 
 .about-stats {
@@ -806,16 +813,18 @@ section { position: relative; }
   margin-top: 48px;
   padding-top: 40px;
   border-top: 1px solid var(--line-strong);
-  max-width: 520px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .about-stat {
   position: relative;
-  padding: 0 24px 0 0;
+  padding: 0 20px 0 0;
+  min-width: 0;
 }
 
 .about-stat + .about-stat {
-  padding: 0 24px 0 24px;
+  padding: 0 20px 0 20px;
   border-left: 1px solid var(--line-strong);
 }
 
@@ -824,7 +833,7 @@ section { position: relative; }
 }
 
 .about-stat-num {
-  font-size: 3rem;
+  font-size: clamp(2rem, 7vw, 3rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -843,13 +852,14 @@ section { position: relative; }
 .about-stat-num .accent { color: var(--burgundy); }
 
 .about-stat-label {
-  font-size: 0.75rem;
+  font-size: clamp(0.62rem, 1.8vw, 0.75rem);
   font-weight: 500;
   color: var(--ink-muted);
   margin-top: 8px;
   line-height: 1.45;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .about-stat-sub {
@@ -1192,18 +1202,11 @@ section { position: relative; }
 .process h2 { color: var(--bg); }
 .process .lede { color: rgba(250, 247, 242, 0.65); }
 
-
-
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   position: relative;
   z-index: 2;
-}
-
-/* connector line between steps */
-.process-steps::before {
-  display: none;
 }
 
 .step {
@@ -1325,7 +1328,6 @@ section { position: relative; }
 
 @media (max-width: 980px) {
   .process-steps { grid-template-columns: repeat(2, 1fr); }
-  .process-steps::before { display: none; }
   .step {
     padding: 40px 40px 40px 0;
     border-bottom: 1px solid rgba(250, 247, 242, 0.08);
@@ -1946,7 +1948,6 @@ footer {
   }
 }
 
-/* === WhatsApp Floating === */
 /* === Floating Contact Bar === */
 .float-bar {
   position: fixed;
@@ -2026,23 +2027,19 @@ footer {
 @media (max-width: 540px) {
   .float-bar-btn {
     height: 48px;
-    padding: 0 16px;
+    padding: 0 18px;
+    gap: 0;
     font-size: 0.86rem;
   }
-  .float-bar-label { display: none; }
-  .float-bar-btn { padding: 0 18px; gap: 0; }
   .float-bar-btn svg { width: 18px; height: 18px; }
-}
-
-body {
-  padding-bottom: calc(82px + env(safe-area-inset-bottom));
+  .float-bar-label { display: none; }
 }
 
 /* === Cookie Consent === */
 .cookie-banner {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom));
   z-index: 110;
   width: min(430px, calc(100% - 40px));
   display: grid;
@@ -2133,12 +2130,12 @@ body {
 }
 
 .cookie-btn {
-  min-height: 42px;
+  min-height: 44px;
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 0 16px;
   font-family: inherit;
-  font-size: 0.84rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: transform 0.28s var(--ease), background 0.28s var(--ease), color 0.28s var(--ease), border-color 0.28s var(--ease);
