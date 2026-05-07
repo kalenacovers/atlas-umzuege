@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"e:\\\\Clients\\\\Atlas Umzüge\\\\Website\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "PowerShell(Get-ChildItem -Path \"e:\\\\Clients\\\\Atlas Umzüge\\\\Website\" -Force | Select-Object Name, @{Name='Type'; Expression={if\\($_.PSIsContainer\\){'Folder'} else {'File'}}} | Sort-Object Name)",
+      "Bash(find \"e:\\\\Clients\\\\Atlas Umzüge\" -type d \\\\\\( -name \"Bilder\" -o -name \"Icons\" -o -name \"Logo\" \\\\\\) 2>/dev/null)",
+      "Read(//e/Clients/Atlas Umzüge/**)"
+    ]
+  }
+}

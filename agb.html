@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGB - Atlas Umzüge</title>
+<meta name="description" content="Allgemeine Geschäftsbedingungen von Atlas Umzüge für Umzugsleistungen, Transport, Entrümpelung, Reinigung und Zusatzleistungen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://atlas-umzugsservice.de/agb">
+<meta property="og:title" content="AGB — Atlas Umzüge">
+<meta property="og:description" content="Allgemeine Geschäftsbedingungen von Atlas Umzüge.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Atlas Umzüge">
+<link rel="canonical" href="https://atlas-umzugsservice.de/agb">
+<meta name="robots" content="noindex, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --burgundy: #A00018;
+  --burgundy-deep: #7A0012;
+  --brown: #352C19;
+  --bg: #FFFFFF;
+  --bg-warm: #F5F5F5;
+  --bg-deep: #1A1612;
+  --ink: #1F1A12;
+  --ink-soft: #3A3127;
+  --ink-muted: #6E6557;
+  --line: rgba(31, 26, 18, 0.1);
+  --paper: #FFFFFF;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.68;
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--burgundy); color: var(--bg); }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+.header {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 100;
+  width: calc(100% - 40px);
+  transform: translateX(-50%);
+}
+
+.header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: 68px;
+  padding: 9px 12px 9px 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(22px) saturate(1.2);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2);
+  box-shadow: 0 18px 44px -28px rgba(31, 26, 18, 0.28);
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.nav-left { justify-content: flex-end; }
+.nav-right { justify-content: flex-start; }
+
+.nav-link {
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.25s var(--ease);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--burgundy);
+  transform: translateX(-50%);
+  transition: width 0.3s var(--ease);
+}
+.nav-link:hover,
+.nav-link.is-active { color: var(--burgundy); }
+.nav-link:hover::after,
+.nav-link.is-active::after { width: 100%; }
+
+.brand { display: flex; align-items: center; justify-content: center; height: 48px; padding: 0 14px; }
+.brand-logo { height: 42px; width: auto; }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--brown);
+  color: var(--bg);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.nav-cta:hover { background: var(--burgundy); transform: translateY(-1px); }
+.nav-cta svg { width: 14px; height: 14px; }
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.menu-toggle span { width: 20px; height: 1.5px; background: var(--ink); }
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 100px 32px 40px;
+  background: var(--bg);
+  transform: translateY(-100%);
+  transition: transform 0.45s var(--ease);
+}
+.mobile-menu.open { transform: translateY(0); }
+.mobile-menu a {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.hero {
+  padding: 170px 0 88px;
+  color: var(--bg);
+  background:
+    linear-gradient(90deg, rgba(26, 22, 18, 0.92), rgba(26, 22, 18, 0.72)),
+    url("Bilder/AdobeStock_253544710.jpeg") center / cover;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 80px;
+  align-items: end;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: rgba(250, 247, 242, 0.68);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: currentColor; }
+.hero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.hero p {
+  max-width: 650px;
+  margin-top: 28px;
+  color: rgba(250, 247, 242, 0.78);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+}
+.summary-card {
+  padding: 24px;
+  border: 1px solid rgba(250, 247, 242, 0.18);
+  border-radius: 8px;
+  background: rgba(250, 247, 242, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.summary-card span {
+  display: block;
+  margin-bottom: 16px;
+  color: rgba(250, 247, 242, 0.58);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.summary-card p {
+  margin: 0;
+  color: rgba(250, 247, 242, 0.82);
+  font-size: 0.96rem;
+}
+
+.legal { padding: 100px 0 120px; }
+.legal-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+.toc {
+  position: sticky;
+  top: 116px;
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.toc a {
+  padding: 12px 14px;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+.toc a:hover { background: var(--burgundy); color: var(--bg); }
+
+.legal-content { display: grid; gap: 24px; }
+.legal-card {
+  padding: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 24px 60px -48px rgba(31, 26, 18, 0.28);
+}
+.legal-card h2 {
+  margin: 0 0 28px;
+  color: var(--ink);
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+}
+.legal-card h3 {
+  margin: 32px 0 12px;
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+.legal-card p,
+.legal-card li { color: var(--ink-soft); }
+.legal-card p + p { margin-top: 12px; }
+.legal-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+.legal-card a { color: var(--burgundy); font-weight: 500; }
+.note {
+  margin-top: 30px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--burgundy);
+  background: var(--bg-warm);
+  color: var(--ink-soft);
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+.meta-item {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+}
+.meta-item span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cta {
+  margin-top: 36px;
+  padding: 36px;
+  border-radius: 8px;
+  background: var(--bg-deep);
+  color: var(--bg);
+}
+.cta h2 {
+  margin: 0 0 12px;
+  color: var(--bg);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.cta p {
+  max-width: 640px;
+  color: rgba(250, 247, 242, 0.72);
+}
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: transform 0.28s var(--ease), background 0.28s var(--ease), color 0.28s var(--ease);
+}
+.btn-primary { background: var(--burgundy); color: var(--bg); }
+.btn-secondary { border: 1px solid rgba(250, 247, 242, 0.32); color: var(--bg); }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary:hover { background: var(--burgundy-deep); }
+.btn-secondary:hover { background: var(--bg); color: var(--ink); }
+
+footer {
+  padding: 46px 0;
+  background: var(--bg-deep);
+  color: rgba(250, 247, 242, 0.72);
+}
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-row strong { color: var(--bg); font-weight: 500; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a:hover { color: var(--bg); }
+
+@media (max-width: 880px) {
+  .wrap { padding: 0 20px; }
+  .header { top: 12px; width: calc(100% - 40px); }
+  .header-inner { grid-template-columns: 1fr auto; padding: 8px 8px 8px 18px; }
+  .nav-left, .nav-right { display: none; }
+  .brand { justify-content: flex-start; padding: 0; }
+  .menu-toggle { display: flex; }
+  .hero { padding: 126px 0 70px; }
+  .hero-grid,
+  .legal-layout { grid-template-columns: 1fr; gap: 34px; }
+  .toc { position: static; grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .legal { padding: 70px 0 90px; }
+  .legal-card { padding: 28px 22px; }
+  .hero h1 {
+    font-size: clamp(2.35rem, 10vw, 3.15rem);
+    line-height: 1.1;
+  }
+  .toc,
+  .meta-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <nav class="nav-left" aria-label="Seitennavigation links">
+      <a href="index.html#about" class="nav-link">Über uns</a>
+      <a href="index.html#services" class="nav-link">Leistungen</a>
+      <a href="index.html#process" class="nav-link">Ablauf</a>
+    </nav>
+
+    <a href="index.html" class="brand" aria-label="Atlas Umzüge Startseite">
+      <img src="Logo/Web/Logo/Full%20Color/Web/atlas-logo-full-color-rgb.svg" alt="Atlas Umzüge" class="brand-logo">
+    </a>
+
+    <nav class="nav-right" aria-label="Seitennavigation rechts">
+      <a href="impressum-datenschutz.html#impressum" class="nav-link">Impressum</a>
+      <a href="impressum-datenschutz.html#datenschutz" class="nav-link">Datenschutz</a>
+      <a href="#agb" class="nav-link is-active">AGB</a>
+      <a href="https://api.whatsapp.com/send?phone=4915758072199" class="nav-cta">
+        Angebot
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menü öffnen" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Startseite</a>
+  <a href="impressum-datenschutz.html#impressum">Impressum</a>
+  <a href="impressum-datenschutz.html#datenschutz">Datenschutz</a>
+  <a href="#agb">AGB</a>
+  <a href="tel:+4915758072199">Anrufen</a>
+  <a href="https://api.whatsapp.com/send?phone=4915758072199" style="color:var(--burgundy)">Angebot anfragen →</a>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Rechtliches</span>
+          <h1>Allgemeine Geschäfts&shy;bedingungen.</h1>
+          <p>
+            Bedingungen für Umzugsleistungen, Transport, Entrümpelung, Reinigung und Zusatzleistungen von Atlas Umzüge.
+          </p>
+        </div>
+        <aside class="summary-card">
+          <span>Hinweis</span>
+          <p>Diese AGB-Seite ist ein redaktioneller Entwurf für die neue Website und sollte vor Veröffentlichung rechtlich geprüft werden.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal" id="agb">
+    <div class="wrap">
+      <div class="legal-layout">
+        <nav class="toc" aria-label="Inhalt">
+          <a href="#geltung">Geltung</a>
+          <a href="#leistungen">Leistungen</a>
+          <a href="#preise">Preise</a>
+          <a href="#haftung">Haftung</a>
+          <a href="#zahlung">Zahlung</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="legal-content">
+          <article class="legal-card">
+            <h2>AGB</h2>
+            <p>
+              Diese Allgemeinen Geschäftsbedingungen gelten für Leistungen von Atlas Umzüge, Inhaber Valentin Lac, Fürnsalerstr. 13, 72175 Dornhan.
+            </p>
+
+            <div class="meta-grid">
+              <div class="meta-item">
+                <span>Anbieter</span>
+                Atlas Umzüge
+              </div>
+              <div class="meta-item">
+                <span>Telefon</span>
+                <a href="tel:+4915758072199">+49 1575 8072199</a>
+              </div>
+              <div class="meta-item">
+                <span>E-Mail</span>
+                <a href="mailto:umzugatlas@gmail.com">umzugatlas@gmail.com</a>
+              </div>
+            </div>
+
+            <h3 id="geltung">1. Geltungsbereich</h3>
+            <p>
+              Diese Bedingungen gelten für alle Angebote, Aufträge und Leistungen im Zusammenhang mit Umzügen, Transporten, Entrümpelungen, Grundreinigungen, Anschlussarbeiten und sonstigen vereinbarten Zusatzleistungen.
+            </p>
+
+            <h3>2. Vertragsschluss</h3>
+            <p>
+              Angebote von Atlas Umzüge erfolgen auf Grundlage der vom Kunden übermittelten Informationen. Ein Vertrag kommt zustande, wenn der Kunde das Angebot annimmt und Atlas Umzüge den Auftrag bestätigt.
+            </p>
+
+            <h3 id="leistungen">3. Leistungsumfang</h3>
+            <p>
+              Der konkrete Leistungsumfang ergibt sich aus dem jeweiligen Angebot oder der Auftragsbestätigung. Nicht ausdrücklich vereinbarte Leistungen, etwa zusätzliche Montagearbeiten, Verpackungsmaterial, Sondertransporte oder Wartezeiten, können gesondert berechnet werden.
+            </p>
+
+            <h3>4. Mitwirkungspflichten des Kunden</h3>
+            <p>
+              Der Kunde stellt sicher, dass alle für die Durchführung notwendigen Informationen rechtzeitig vorliegen. Dazu gehören insbesondere Adressen, Etagen, Zugangssituationen, Haltemöglichkeiten, Umfang des Umzugsguts und besondere Gegenstände.
+            </p>
+            <ul>
+              <li>Zugänge, Treppenhäuser und Aufzüge sind freizuhalten.</li>
+              <li>Empfindliche oder wertvolle Gegenstände sind vorab mitzuteilen.</li>
+              <li>Erforderliche Genehmigungen, etwa Halteverbotszonen, sind zu klären, sofern nicht ausdrücklich anders vereinbart.</li>
+            </ul>
+
+            <h3 id="preise">5. Preise und Zusatzkosten</h3>
+            <p>
+              Vereinbarte Festpreise gelten für den beschriebenen Leistungsumfang. Ändern sich Umfang, Zugänge, Wartezeiten oder sonstige auftragsrelevante Bedingungen, kann eine Anpassung des Preises erforderlich werden.
+            </p>
+
+            <h3>6. Termine und Durchführung</h3>
+            <p>
+              Atlas Umzüge bemüht sich um pünktliche Durchführung. Verzögerungen durch Verkehr, Witterung, höhere Gewalt oder unvollständige Angaben des Kunden können nicht vollständig ausgeschlossen werden.
+            </p>
+
+            <h3 id="haftung">7. Haftung und Versicherung</h3>
+            <p>
+              Umzugsgut wird mit der gebotenen Sorgfalt behandelt. Eine Haftung besteht im Rahmen der gesetzlichen Vorschriften und der jeweils vereinbarten Versicherungsbedingungen. Schäden sind unverzüglich nach Feststellung zu melden und zu dokumentieren.
+            </p>
+
+            <h3>8. Rücktritt und Stornierung</h3>
+            <p>
+              Stornierungen sind möglichst frühzeitig mitzuteilen. Bereits entstandene Aufwendungen, reservierte Kapazitäten oder kurzfristige Ausfälle können angemessen berechnet werden, soweit gesetzlich zulässig.
+            </p>
+
+            <h3 id="zahlung">9. Zahlung</h3>
+            <p>
+              Zahlungen sind gemäß Angebot oder Rechnung fällig. Soweit nichts anderes vereinbart ist, erfolgt die Zahlung nach Leistungserbringung oder nach den in der Auftragsbestätigung genannten Zahlungsbedingungen.
+            </p>
+
+            <h3>10. Reklamationen</h3>
+            <p>
+              Beanstandungen sind zeitnah nach Leistungserbringung mitzuteilen. Atlas Umzüge erhält Gelegenheit zur Prüfung und, soweit möglich, zur Nachbesserung.
+            </p>
+
+            <h3>11. Datenschutz</h3>
+            <p>
+              Informationen zur Verarbeitung personenbezogener Daten finden sich in der <a href="impressum-datenschutz.html#datenschutz">Datenschutzerklärung</a>.
+            </p>
+
+            <h3>12. Schlussbestimmungen</h3>
+            <p>
+              Sollten einzelne Bestimmungen unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Es gilt deutsches Recht.
+            </p>
+
+            <div class="note">
+              Hinweis: Dieser Text ist ein Entwurf und ersetzt keine Rechtsberatung. Bitte vor Veröffentlichung durch eine fachkundige Stelle prüfen lassen.
+            </div>
+          </article>
+
+          <section class="cta" id="kontakt">
+            <h2>Fragen zu den AGB?</h2>
+            <p>Atlas Umzüge ist direkt erreichbar. Nutzen Sie Telefon, E-Mail oder WhatsApp für eine schnelle Rückmeldung.</p>
+            <div class="cta-actions">
+              <a href="tel:+4915758072199" class="btn btn-primary">Jetzt anrufen</a>
+              <a href="mailto:umzugatlas@gmail.com" class="btn btn-secondary">E-Mail schreiben</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div><strong>Atlas Umzüge</strong><br>©2026 Alle Rechte vorbehalten.</div>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="impressum-datenschutz.html#impressum">Impressum</a>
+        <a href="impressum-datenschutz.html#datenschutz">Datenschutz</a>
+        <a href="#agb">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const toggle = document.getElementById('menuToggle');
+const menu = document.getElementById('mobileMenu');
+
+toggle?.addEventListener('click', () => {
+  menu.classList.toggle('open');
+  toggle.classList.toggle('open');
+});
+
+menu?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle?.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
