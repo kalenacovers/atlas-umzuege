@@ -18,150 +18,23 @@
 <meta name="twitter:image" content="https://atlas-umzugsservice.de/Bilder/AdobeStock_464868397.jpeg">
 <link rel="canonical" href="https://atlas-umzugsservice.de/leistungen">
 
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="mask-icon" href="/favicon.svg" color="#A00018">
+<meta name="theme-color" content="#A00018">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="styles.css">
+
 <style>
-:root {
-  --burgundy: #A00018;
-  --burgundy-deep: #7A0012;
-  --burgundy-soft: rgba(160, 0, 24, 0.08);
-  --burgundy-line: rgba(160, 0, 24, 0.18);
-  --brown: #352C19;
-  --brown-soft: #4A3F28;
-  --bg: #FFFFFF;
-  --bg-warm: #F5F5F5;
-  --bg-cream: #EBEBEB;
-  --bg-deep: #1A1612;
-  --ink: #1F1A12;
-  --ink-soft: #3A3127;
-  --ink-muted: #6E6557;
-  --ink-faded: #9A9285;
-  --line: rgba(31, 26, 18, 0.08);
-  --line-strong: rgba(31, 26, 18, 0.16);
-  --paper: #FFFFFF;
-  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --ease-soft: cubic-bezier(0.34, 1.16, 0.64, 1);
-}
+/* Tokens, reset, typography, buttons, utilities → styles.css */
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--ink);
-  background: var(--bg);
-  overflow-x: hidden;
-  letter-spacing: 0;
-}
-
-a { color: inherit; text-decoration: none; }
-img, svg { max-width: 100%; display: block; }
-button { font: inherit; }
-::selection { background: var(--burgundy); color: var(--bg); }
-
-.wrap {
-  width: min(100% - 48px, 1280px);
-  margin: 0 auto;
-}
-
+/* Page accent override: larger hero display + tighter section rhythm */
+.title-xl { font-size: clamp(2.9rem, 6.2vw, 6.4rem); }
 .section-pad { padding: 120px 0; }
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--burgundy);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.eyebrow::before {
-  content: '';
-  width: 24px;
-  height: 1px;
-  background: var(--burgundy);
-}
-
-h1, h2, h3, h4 {
-  color: var(--ink);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: 0;
-}
-
-.title-xl {
-  font-size: clamp(2.8rem, 6vw, 6.2rem);
-  line-height: 1;
-}
-
-.title-lg {
-  font-size: clamp(2rem, 4.2vw, 3.6rem);
-}
-
-.title-md {
-  font-size: clamp(1.45rem, 2.6vw, 2.2rem);
-}
-
-.lede {
-  color: var(--ink-muted);
-  font-size: clamp(1rem, 1.2vw, 1.16rem);
-  line-height: 1.7;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 52px;
-  padding: 0 24px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-size: 0.92rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
-}
-
-.btn svg { width: 16px; height: 16px; transition: transform 0.3s var(--ease); }
-.btn:hover { transform: translateY(-2px); }
-.btn:hover svg { transform: translateX(4px); }
-
-.btn-primary {
-  background: var(--burgundy);
-  color: var(--bg);
-  box-shadow: 0 16px 34px -18px rgba(160, 0, 24, 0.58);
-}
-
-.btn-primary:hover { background: var(--burgundy-deep); }
-
-.btn-ghost {
-  border-color: rgba(250, 247, 242, 0.35);
-  color: var(--bg);
-}
-
-.btn-ghost:hover {
-  background: var(--bg);
-  border-color: var(--bg);
-  color: var(--ink);
-}
-
-.btn-dark {
-  background: var(--brown);
-  color: var(--bg);
-}
+.btn-ghost { border-color: rgba(250, 247, 242, 0.35); }
 
 .btn-dark:hover { background: var(--burgundy); }
 
@@ -182,9 +55,9 @@ h1, h2, h3, h4 {
   gap: 24px;
   min-height: 70px;
   padding: 9px 12px 9px 24px;
-  border: 1px solid rgba(31, 26, 18, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(12, 12, 12, 0.72);
   backdrop-filter: blur(22px) saturate(1.2);
   -webkit-backdrop-filter: blur(22px) saturate(1.2);
   box-shadow: 0 18px 44px -28px rgba(31, 26, 18, 0.3);
@@ -193,7 +66,7 @@ h1, h2, h3, h4 {
 
 .header.scrolled .header-inner {
   min-height: 62px;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(12, 12, 12, 0.82);
   box-shadow: 0 18px 34px -28px rgba(31, 26, 18, 0.42);
 }
 
@@ -255,14 +128,14 @@ h1, h2, h3, h4 {
   padding: 0 24px;
   border-radius: 999px;
   background: var(--brown);
-  color: var(--bg);
+  color: var(--white);
   font-size: 0.88rem;
   font-weight: 500;
   transition: background 0.3s var(--ease), transform 0.3s var(--ease);
 }
 
 .nav-cta:hover {
-  background: var(--burgundy);
+  background: var(--burgundy-deep);
   transform: translateY(-1px);
 }
 
@@ -335,7 +208,7 @@ h1, h2, h3, h4 {
   display: grid;
   align-items: end;
   overflow: hidden;
-  color: var(--bg);
+  color: var(--white);
   background: var(--bg-deep);
 }
 
@@ -380,12 +253,12 @@ h1, h2, h3, h4 {
   animation: riseIn 0.9s var(--ease) 0.1s both;
 }
 
-.hero .eyebrow { color: var(--bg); }
+.hero .eyebrow { color: var(--white); }
 .hero .eyebrow::before { background: var(--burgundy); }
 
 .hero h1 {
   margin-top: 22px;
-  color: var(--bg);
+  color: var(--white);
 }
 
 .hero p {
@@ -425,7 +298,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-meta strong {
-  color: var(--bg);
+  color: var(--white);
   font-size: 1.18rem;
   font-weight: 500;
 }
@@ -491,8 +364,8 @@ h1, h2, h3, h4 {
   min-height: 56px;
   padding: 0 18px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.45);
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--ink-soft);
   font-size: 0.92rem;
   font-weight: 500;
@@ -523,7 +396,7 @@ h1, h2, h3, h4 {
   gap: 26px;
   padding: clamp(24px, 4vw, 42px);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   background: var(--paper);
   scroll-margin-top: 120px;
   transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
@@ -540,7 +413,7 @@ h1, h2, h3, h4 {
   height: 68px;
   display: grid;
   place-items: center;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--burgundy-soft);
   color: var(--burgundy);
 }
@@ -705,7 +578,7 @@ h1, h2, h3, h4 {
 /* === Quality CTA === */
 .quality {
   background: var(--bg-deep);
-  color: var(--bg);
+  color: var(--white);
 }
 
 .quality-grid {
@@ -717,7 +590,7 @@ h1, h2, h3, h4 {
 
 .quality-image {
   min-height: 560px;
-  border-radius: 8px;
+  border-radius: var(--r-lg);
   overflow: hidden;
 }
 
@@ -731,7 +604,7 @@ h1, h2, h3, h4 {
 .quality-image:hover img { transform: scale(1.035); }
 
 .quality h2,
-.quality h3 { color: var(--bg); }
+.quality h3 { color: var(--white); }
 
 .quality p {
   color: rgba(250, 247, 242, 0.68);
@@ -757,7 +630,7 @@ h1, h2, h3, h4 {
   height: 44px;
   display: grid;
   place-items: center;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--burgundy);
 }
 
@@ -794,7 +667,7 @@ h1, h2, h3, h4 {
 
 .faq-item {
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   background: var(--paper);
   overflow: hidden;
 }
@@ -840,12 +713,17 @@ h1, h2, h3, h4 {
   gap: 32px;
   align-items: center;
   padding: clamp(28px, 5vw, 58px);
-  border-radius: 8px;
+  border-radius: var(--r-lg);
   background: var(--brown);
-  color: var(--bg);
+  color: var(--white);
 }
 
-.cta-card h2 { color: var(--bg); }
+.cta-card .btn-primary { background: var(--white); color: #070707; box-shadow: none; }
+.cta-card .btn-primary:hover { background: #070707; color: var(--white); }
+.cta-card .btn-ghost { border-color: rgba(255, 255, 255, 0.5); color: var(--white); }
+.cta-card .btn-ghost:hover { background: var(--white); border-color: var(--white); color: #070707; }
+
+.cta-card h2 { color: var(--white); }
 
 .cta-card p {
   max-width: 680px;
@@ -868,7 +746,7 @@ h1, h2, h3, h4 {
 /* === Footer === */
 footer {
   background: var(--bg-deep);
-  color: var(--bg);
+  color: var(--white);
   padding: 76px 0 34px;
 }
 
@@ -893,7 +771,7 @@ footer {
 
 .footer-heading {
   margin-bottom: 18px;
-  color: var(--bg);
+  color: var(--white);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -911,7 +789,7 @@ footer {
   transition: color 0.25s var(--ease);
 }
 
-.footer-list a:hover { color: var(--bg); }
+.footer-list a:hover { color: var(--white); }
 
 .footer-contact {
   display: grid;
@@ -928,7 +806,7 @@ footer {
 }
 
 .footer-contact-value {
-  color: var(--bg);
+  color: var(--white);
   font-weight: 400;
 }
 
@@ -949,7 +827,7 @@ footer {
 }
 
 .footer-legal a { transition: color 0.25s var(--ease); }
-.footer-legal a:hover { color: var(--bg); }
+.footer-legal a:hover { color: var(--white); }
 
 @media (max-width: 980px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1003,12 +881,12 @@ footer {
 
 .bottom-nav-offer {
   background: var(--burgundy);
-  color: var(--bg);
+  color: var(--white);
 }
 
 .bottom-nav-call {
-  background: var(--brown);
-  color: var(--bg);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
 }
 
 @media (max-width: 880px) {
@@ -1024,10 +902,10 @@ footer {
     gap: 8px;
     width: min(calc(100% - 28px), 430px);
     padding: 8px;
-    border: 1px solid rgba(31, 26, 18, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 999px;
-    background: rgba(250, 247, 242, 0.94);
-    box-shadow: 0 18px 44px -20px rgba(31, 26, 18, 0.32);
+    background: rgba(16, 16, 16, 0.9);
+    box-shadow: 0 18px 44px -20px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(18px) saturate(1.18);
     -webkit-backdrop-filter: blur(18px) saturate(1.18);
     transform: translateX(-50%);
@@ -1047,11 +925,11 @@ footer {
   grid-template-columns: auto 1fr;
   gap: 16px;
   padding: 18px;
-  border: 1px solid rgba(31, 26, 18, 0.12);
-  border-radius: 8px;
-  background: rgba(250, 247, 242, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-md);
+  background: rgba(16, 16, 16, 0.96);
   color: var(--ink);
-  box-shadow: 0 24px 70px -30px rgba(31, 26, 18, 0.42);
+  box-shadow: 0 24px 70px -30px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(18px) saturate(1.16);
   -webkit-backdrop-filter: blur(18px) saturate(1.16);
   opacity: 0;
@@ -1071,11 +949,11 @@ footer {
 .cookie-mark {
   width: 42px;
   height: 42px;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   display: grid;
   place-items: center;
   background: var(--burgundy);
-  color: var(--bg);
+  color: var(--white);
 }
 
 .cookie-mark svg {
@@ -1136,17 +1014,17 @@ footer {
 .cookie-btn-ghost {
   background: transparent;
   color: var(--ink);
-  border-color: rgba(31, 26, 18, 0.18);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .cookie-btn-ghost:hover {
   background: var(--brown);
-  color: var(--bg);
+  color: var(--white);
 }
 
 .cookie-btn-primary {
   background: var(--burgundy);
-  color: var(--bg);
+  color: var(--white);
 }
 
 .cookie-btn-primary:hover { background: var(--burgundy-deep); }
@@ -1172,20 +1050,11 @@ footer {
   .cookie-actions { grid-template-columns: 1fr; }
 }
 
-/* === Reveal === */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Reveal → styles.css */
 </style>
 </head>
 <body>
+<a href="#hauptinhalt" class="skip-link">Zum Inhalt springen</a>
 
 <header class="header" id="header">
   <div class="header-inner">
@@ -1196,7 +1065,7 @@ footer {
     </nav>
 
     <a href="index.html" class="brand" aria-label="Atlas Umzüge Startseite">
-      <img src="Logo/Web/Logo/Full%20Color/Web/atlas-logo-full-color-rgb.svg" alt="Atlas Umzüge" class="brand-logo">
+      <img src="Logo/Web/Logo/White/Web/atlas-logo-white-rgb.svg" alt="Atlas Umzüge" class="brand-logo">
     </a>
 
     <nav class="nav-right">
@@ -1223,7 +1092,7 @@ footer {
   <a href="https://api.whatsapp.com/send?phone=4915758072199" style="color:var(--burgundy)">Angebot anfragen →</a>
 </div>
 
-<main>
+<main id="hauptinhalt">
   <section class="hero" id="top">
     <div class="hero-bg">
       <img src="Bilder/AdobeStock_464868397.jpeg" alt="Sorgfältige Verpackung und Premium Umzugsservice von Atlas Umzüge">

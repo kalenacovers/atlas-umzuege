@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -nE 'section-pad|\\\\.section-header|/\\\\* === REVEAL|/\\\\* === Paper grain|\\\\.reveal \\\\{|prefers-reduced-motion' index.html)"
+    ]
+  }
+}

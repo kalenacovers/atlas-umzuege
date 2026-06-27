@@ -1,0 +1,327 @@
+/* ===================================================================
+   Atlas Umzüge — Shared Design System
+   Altrum dark canvas + Atlas burgundy accent. Inter typography.
+   Loaded by every page before its page-specific <style> block.
+   =================================================================== */
+
+:root {
+  /* Brand — burgundy accent retained on Altrum dark canvas */
+  --burgundy: #A00018;
+  --burgundy-deep: #7A0012;
+  --burgundy-soft: rgba(160, 0, 24, 0.16);
+  --burgundy-line: rgba(160, 0, 24, 0.42);
+  --brown: #A00018;            /* collapsed into the single accent */
+
+  /* Dark surfaces (Altrum) */
+  --bg: #070707;               /* page canvas */
+  --bg-warm: #0E0E0E;          /* alternating section */
+  --bg-cream: #141414;         /* deeper alternating section */
+  --bg-deep: #030303;          /* deepest sections (process / footer) */
+
+  --ink: #FFFFFF;              /* primary text */
+  --ink-soft: rgba(255, 255, 255, 0.72);
+  --ink-muted: #8A8A8A;        /* secondary text (Altrum #888) */
+  --ink-faded: #5A5A5A;
+
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.20);
+  --paper: #181818;            /* card surface (Altrum) */
+  --surface-2: #202020;        /* raised tiles */
+  --white: #FFFFFF;            /* explicit white foreground / light chips */
+
+  /* Radius — rounded form language (Altrum 10px+) */
+  --r-xs: 10px;
+  --r-sm: 14px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --r-xl: 36px;
+  --r-pill: 999px;
+
+  /* Spacing — 15px base grid */
+  --s-1: 15px;
+  --s-2: 30px;
+  --s-3: 45px;
+  --s-4: 60px;
+  --s-5: 90px;
+  --s-6: 120px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.34, 1.16, 0.64, 1);
+}
+
+/* === Reset & base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+a, button, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  letter-spacing: 0;
+}
+
+::selection { background: var(--burgundy); color: var(--white); }
+
+a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; display: block; }
+button { font: inherit; }
+
+/* === Focus & skip link === */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--burgundy);
+  outline-offset: 4px;
+}
+
+.header a:focus-visible,
+.mobile-menu a:focus-visible,
+.btn:focus-visible,
+.nav-cta:focus-visible,
+.service-link:focus-visible,
+.float-bar-btn:focus-visible,
+.cookie-btn:focus-visible {
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px rgba(160, 0, 24, 0.18);
+}
+
+.skip-link {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 200;
+  padding: 12px 22px;
+  background: var(--burgundy);
+  color: #fff;
+  border-radius: var(--r-pill);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 14px 30px -14px rgba(160, 0, 24, 0.55);
+  transform: translateY(-160%);
+  transition: transform 0.28s var(--ease);
+}
+.skip-link:focus { transform: translateY(0); outline: 2px solid #fff; outline-offset: 2px; }
+
+/* === Typography === */
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--burgundy);
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.title-xl {
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.title-lg {
+  font-size: clamp(2.1rem, 4.4vw, 3.7rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.title-md {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.lede {
+  font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+/* === Layout primitives === */
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 max(32px, env(safe-area-inset-left));
+  padding-right: max(32px, env(safe-area-inset-right));
+}
+@media (max-width: 640px) {
+  .wrap {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+section { position: relative; }
+.section-pad { padding: 140px 0; }
+@media (max-width: 768px) { .section-pad { padding: 90px 0; } }
+
+.section-header {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  margin-bottom: 80px;
+  align-items: end;
+}
+.section-header .lede { max-width: 540px; }
+.section-header h2 { margin-top: 24px; }
+@media (max-width: 880px) {
+  .section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  white-space: nowrap;
+}
+
+.btn svg { width: 16px; height: 16px; transition: transform 0.3s var(--ease); }
+.btn:hover svg { transform: translateX(4px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+.nav-cta:active { transform: translateY(0) scale(0.98); }
+.footer-cta-btn:active { transform: scale(0.98); }
+.cookie-btn:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: var(--burgundy);
+  color: var(--white);
+  box-shadow: 0 14px 30px -14px rgba(160, 0, 24, 0.45);
+}
+.btn-primary:hover {
+  background: var(--burgundy-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -16px rgba(160, 0, 24, 0.55);
+}
+
+.btn-dark {
+  background: var(--brown);
+  color: var(--white);
+}
+.btn-dark:hover {
+  background: var(--burgundy-deep);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--white);
+  background: var(--white);
+  color: #070707;
+  transform: translateY(-2px);
+}
+
+.btn-light {
+  background: var(--white);
+  color: #070707;
+}
+.btn-light:hover {
+  background: var(--burgundy);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-strong);
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), gap 0.3s var(--ease);
+}
+.btn-link svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease); }
+.btn-link:hover { color: var(--burgundy); border-color: var(--burgundy); gap: 14px; }
+
+/* === Scroll reveal === */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* === Paper grain — tactile depth on a fixed, non-interactive layer === */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+/* === Reduced motion (generic) === */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
